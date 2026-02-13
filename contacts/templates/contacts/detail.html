@@ -1,0 +1,10 @@
+{% extends "parent/base.html" %} {% block title %} {{contact.name}} {% endblock %}
+{% block content %} 
+
+<h1>{{contact.name}}</h1> 
+<p>{{contact.email}}</p>
+<p>{{contact.phone}}</p>
+<p>{{contact.address}}</p>
+
+post by {{contact.user}} at {{contact.created_date}}
+{% endblock %}

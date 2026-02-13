@@ -9,7 +9,7 @@ class Contact(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=20)
     address = models.CharField(max_length=200 , default="unknown")
-    created_date = models.DateTimeField(default=timezone.now)
+    created_date = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
