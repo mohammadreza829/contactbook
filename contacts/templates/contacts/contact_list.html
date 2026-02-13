@@ -1,12 +1,13 @@
-{% extends "parent/base.html" %}
+{% extends "parent/base.html" %} {% block content %}
+<h1>Contact List</h1>
 
-{% block content %}
-    <h1>Contact List</h1>
-    <p>This is the contact list page.</p>
-    {% for contact in contacts %}
-        <p style = 'font-weight: bold;'><a href="{% url 'contact_detail' contact.id %}">{{ contact.name }}</a></p>
-        <hr>
-    {% empty %}
-        <p>No contacts available.</p>
-    {% endfor %}
-{% endblock %}
+<p><a href="{% url 'contact_create' %}">+ Add Contact</a></p>
+
+{% for contact in contacts %}
+<p style="font-weight: bold">
+  <a href="{% url 'contact_detail' contact.id %}">{{ contact.name }}</a>
+</p>
+<hr />
+{% empty %}
+<p>No contacts available.</p>
+{% endfor %} {% endblock %}
