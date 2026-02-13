@@ -9,3 +9,7 @@ def index(request):
 def contact_list(request):
     contacts = Contact.objects.all()
     return render(request, "contacts/contact_list.html", {"contacts": contacts})
+
+def contact_detail(request, id):
+    contact = Contact.objects.get(id=id)
+    return render(request, "contacts/detail.html", {"contact": contact})
