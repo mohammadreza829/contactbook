@@ -1,0 +1,11 @@
+{% extends "parent/base.html" %}
+
+{% block content %}
+    <h1>Contact List</h1>
+    <p>This is the contact list page.</p>
+    {% for contact in contacts %}
+        <p style = 'font-weight: bold;'>{{ contact.name }}</p>
+    {% empty %}
+        <p>No contacts available.</p>
+    {% endfor %}
+{% endblock %}
