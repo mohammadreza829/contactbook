@@ -1,13 +1,39 @@
-{% extends "parent/base.html" %} {% block content %}
-<h1>Contact List</h1>
+{% extends "parent/base.html" %}
 
-<p><a href="{% url 'contact_create' %}">+ Add Contact</a></p>
+{% block title %}Contacts{% endblock %}
 
-{% for contact in contacts %}
-<p style="font-weight: bold">
-  <a href="{% url 'contact_detail' contact.id %}">{{ contact.name }}</a>
-</p>
-<hr />
-{% empty %}
-<p>No contacts available.</p>
-{% endfor %} {% endblock %}
+{% block content %}
+  <div class="page-header">
+    <h1>Contacts</h1>
+    <a class="btn" href="{% url 'contact_create' %}">+ Add Contact</a>
+  </div>
+
+  {% if contacts %}
+    <div class="grid">
+      {% for contact in contacts %}
+  <a class="card" href="{% url 'contact_detail' contact.id %}">
+  <div class="card-top">
+    <div class="avatar">{{ contact.name|first|upper }}</div>
+
+    <div>
+      <div class="card-title">{{ contact.name }}</div>
+      <div class="card-lines">
+        <div class="meta"><span class="dot"></span>{{ contact.phone }}</div>
+        <div class="meta"><span class="dot"></span>{{ contact.email }}</div>
+      </div>
+    </div>
+
+    <div class="badges">
+      <span class="badge">Saved</span>
+    </div>
+  </div>
+</a>
+
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="empty">
+      No contacts yet. Click “Add Contact”.
+    </div>
+  {% endif %}
+{% endblock %}

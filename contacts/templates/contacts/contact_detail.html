@@ -1,11 +1,25 @@
-{% extends "parent/base.html" %} {% block content %}
-<h1>{{ contact.name }}</h1>
+{% extends "parent/base.html" %}
 
-<p><strong>Phone:</strong> {{ contact.phone }}</p>
-<p><strong>Email:</strong> {{ contact.email }}</p>
-<p><strong>Address:</strong> {{ contact.address }}</p>
+{% block title %}{{ contact.name }}{% endblock %}
 
-<p style="margin-top: 20px">
-  <a href="{% url 'contact_list' %}">← Back to contact list</a>
-</p>
+{% block content %}
+  <div class="page-header">
+    <h1>{{ contact.name }}</h1>
+    <a class="link" href="{% url 'contact_list' %}">← Back</a>
+  </div>
+
+  <div class="panel">
+    <div class="row">
+      <div class="label">Phone</div>
+      <div class="value">{{ contact.phone }}</div>
+    </div>
+    <div class="row">
+      <div class="label">Email</div>
+      <div class="value">{{ contact.email }}</div>
+    </div>
+    <div class="row">
+      <div class="label">Address</div>
+      <div class="value">{{ contact.address }}</div>
+    </div>
+  </div>
 {% endblock %}

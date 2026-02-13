@@ -1,14 +1,12 @@
 from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
 from .models import Contact
 
 
 # Create your views here.
 def index(request):
     return HttpResponse("Hello, world. You're at the contacts index.")
-
 
 
 @login_required

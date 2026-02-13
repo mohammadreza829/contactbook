@@ -1,35 +1,33 @@
-{% extends "parent/base.html" %}
-
-{% block content %}
+{% extends "parent/base.html" %} {% block title %}Add Contact{% endblock %} 
+{%block content %}
+<div class="page-header">
   <h1>Add Contact</h1>
+  <a class="link" href="{% url 'contact_list' %}">← Back</a>
+</div>
 
-  <form method="post">
-    {% csrf_token %}
+<form class="form" method="post">
+  {% csrf_token %}
 
-    <p>
-      <label>Name:</label><br>
-      <input type="text" name="name" required>
-    </p>
+  <label class="field">
+    <span>Name</span>
+    <input type="text" name="name" required />
+  </label>
 
-    <p>
-      <label>Email:</label><br>
-      <input type="email" name="email" required>
-    </p>
+  <label class="field">
+    <span>Email</span>
+    <input type="email" name="email" required />
+  </label>
 
-    <p>
-      <label>Phone:</label><br>
-      <input type="text" name="phone" required>
-    </p>
+  <label class="field">
+    <span>Phone</span>
+    <input type="text" name="phone" required />
+  </label>
 
-    <p>
-      <label>Address:</label><br>
-      <input type="text" name="address">
-    </p>
+  <label class="field">
+    <span>Address</span>
+    <input type="text" name="address" />
+  </label>
 
-    <button type="submit">Save</button>
-  </form>
-
-  <p style="margin-top: 20px;">
-    <a href="{% url 'contact_list' %}">← Back</a>
-  </p>
+  <button class="btn" type="submit">Save</button>
+</form>
 {% endblock %}

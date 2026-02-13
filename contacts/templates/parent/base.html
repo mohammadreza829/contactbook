@@ -1,17 +1,19 @@
 {% load static %}
 <!doctype html>
 <html>
-<head >
-  <title>{% block title %}Blog{% endblock %}</title>
+<head>
+  <title>{% block title %}ContactBook{% endblock %}</title>
   <link rel="stylesheet" href="{% static 'contacts/css/style.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="{% static 'contacts/js/script.js' %}"></script>
-
 </head>
-<body dir="ltr">
 
+<body>
   {% include 'partials/navigatore.html' %}
 
-  {% block content %}{% endblock %}
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
 
   {% include 'partials/footer.html' %}
 </body>
