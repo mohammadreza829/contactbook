@@ -4,7 +4,7 @@
     <h1>Contact List</h1>
     <p>This is the contact list page.</p>
     {% for contact in contacts %}
-        <p style = 'font-weight: bold;'><a href="{% url 'detail' contact.id %}">{{ contact.name }}</a></p>
+        <p style = 'font-weight: bold;'><a href="{% url 'contact_detail' contact.id %}">{{ contact.name }}</a></p>
         <hr>
     {% empty %}
         <p>No contacts available.</p>
