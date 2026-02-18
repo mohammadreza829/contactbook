@@ -1,5 +1,4 @@
 from django.contrib import admin
-
 # Register your models here.
 from django.contrib import admin
 from .models import Contact
@@ -10,3 +9,4 @@ class ContactAdmin(admin.ModelAdmin):
     list_display = ("name", "email", "phone", "created_date")
     search_fields = ("name", "email", "phone")
     list_filter = ("created_date",)
+    ordering = ("-created_date",)
